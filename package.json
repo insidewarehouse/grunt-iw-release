@@ -1,0 +1,32 @@
+{
+  "name": "grunt-iw-release",
+  "version": "0.0.0",
+  "description": "InsideWarehouse release/deploy flow",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/insidewarehouse/grunt-iw-release.git"
+  },
+  "keywords": [
+    "gruntplugin",
+    "release",
+    "git"
+  ],
+  "author": "Dominykas Blyžė, InsideWarehouse <hello@dominykas.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/insidewarehouse/grunt-iw-release/issues"
+  },
+  "homepage": "https://github.com/insidewarehouse/grunt-iw-release",
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "grunt-checkbranch": "^0.3.1",
+    "grunt-checkpending": "^0.1.2",
+    "shelljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "grunt-release": "^0.7.0"
+  }
+}
