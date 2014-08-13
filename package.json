@@ -22,10 +22,12 @@
   "homepage": "https://github.com/insidewarehouse/grunt-iw-release",
   "dependencies": {
     "grunt": "^0.4.5",
+    "shelljs": "^0.3.0"
+  },
+  "peerDependencies": {
     "grunt-bump": "0.0.15",
     "grunt-checkbranch": "^0.3.1",
-    "grunt-checkpending": "^0.1.2",
-    "shelljs": "^0.3.0"
+    "grunt-checkpending": "^0.1.2"
   },
   "devDependencies": {
     "grunt-release": "^0.7.0"
