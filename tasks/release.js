@@ -1,5 +1,9 @@
 module.exports = function (grunt) {
 
+	grunt.loadNpmTasks("grunt-bump");
+	grunt.loadNpmTasks("grunt-checkbranch");
+	grunt.loadNpmTasks("grunt-checkpending");
+
 	grunt.registerTask("release", "Prepare release bundle (bump version, build, compress, commit, tag, push)", function () {
 		var bumpLevel = grunt.option("bump");
 		if (bumpLevel !== "minor" && bumpLevel !== "major" && bumpLevel !== "patch") {
