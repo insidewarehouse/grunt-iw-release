@@ -27,7 +27,7 @@ module.exports = function (grunt) {
 		}
 
 		var topLevelPath = toplevelOutput.output.trim();
-		if (grunt.file.isPathCwd(topLevelPath)) {
+		if (!grunt.file.isPathCwd(topLevelPath)) {
 			var pkgName = grunt.config.get("pkg.name");
 			bumpOptions.commitMessage = "[" + pkgName + "] v%VERSION%";
 			bumpOptions.tagName = pkgName + "-v%VERSION%";
