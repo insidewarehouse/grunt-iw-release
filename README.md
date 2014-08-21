@@ -24,18 +24,14 @@ InsideWarehouse release/deploy flow.
 
 ## `deploy` task
 
-1. TODO: Check initial conditions
-   * branch
-   * pending changes
-   * tag / version
-   * tgz present, alternative: download tgz from github
-2. TODO: Check remote conditions
-   * tgz not uploaded yet
-   * version folder not present yet
-3. TODO: Upload tgz
-   * alternative: download tgz from github
-4. TODO: Extract tgz remotely
-5. TODO: symlink to new version
-6. TODO: restart service, if needed
-   * if `package.json` contains `scripts.start` - execute `npm restart`
-   * if `restart.sh` present - execute `bash restart.sh`
+1. Checks you're still on the same commit as the version in the package
+2. Checks tgz not already uploaded
+   * TODO: check version folder not present yet
+   * TODO: check version is newer or explicit than what's on production
+3. Uploads tgz
+   * TODO: do we have a place to store tgz for future?
+4. Extracts tgz remotely
+5. Symlinks to new version
+6. Restarts service, if needed
+   * if `package.json` contains `scripts.start` - executes `npm restart`
+   * if `restart.sh` present - executes `bash restart.sh`
