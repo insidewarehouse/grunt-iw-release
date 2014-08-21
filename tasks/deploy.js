@@ -73,7 +73,7 @@ module.exports = function (grunt) {
 			grunt.fail.fatal("Failed to detect the current commit");
 		}
 
-		var tagOutput = shell.exec("git rev-parse " + checkTag, {silent: true});
+		var tagOutput = shell.exec("git rev-parse " + checkTag + " | head -n 1", {silent: true});
 		if (tagOutput.code !== 0) {
 			grunt.fail.fatal("Failed to detect the commit of tag '" + checkTag + "'");
 		}

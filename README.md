@@ -3,6 +3,8 @@ grunt-iw-release
 
 InsideWarehouse release/deploy flow.
 
+TODO: wait for it... wait for it... document options :)
+
 ## `release` task
 
 1. Checks you're on `master` branch
