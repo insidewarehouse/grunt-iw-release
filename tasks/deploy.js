@@ -68,12 +68,12 @@ module.exports = function (grunt) {
 
 		var checkTag = grunt.config.get("bump.options.tagName").replace("%VERSION%", grunt.config.get("pkg.version"));
 
-		var headOutput = shell.exec("git rev-parse HEAD", {silent: true});
+		var headOutput = shell.exec("git rev-list -1 HEAD", {silent: true});
 		if (headOutput.code !== 0) {
 			grunt.fail.fatal("Failed to detect the current commit");
 		}
 
-		var tagOutput = shell.exec("git rev-parse " + checkTag + " | head -n 1", {silent: true});
+		var tagOutput = shell.exec("git rev-list -1 " + checkTag, {silent: true});
 		if (tagOutput.code !== 0) {
 			grunt.fail.fatal("Failed to detect the commit of tag '" + checkTag + "'");
 		}
