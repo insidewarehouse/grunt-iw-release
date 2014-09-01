@@ -10,12 +10,14 @@ module.exports = function (grunt) {
 	var deploymentInfo = grunt.config.get("pkg.deployment");
 
 	var keyFile = path.join(USER_HOME, ".ssh", (deploymentInfo.keyFileName || "id-rsa"));
+	var privateKey;
 	if (!fs.existsSync(keyFile)) {
-		grunt.fail.fatal("Key file not found: " + keyFile);
+		privateKey = "";
+		grunt.log.warn("Key file not found: " + keyFile);
+	} else {
+		privateKey = fs.readFileSync(keyFile).toString();
+		grunt.log.ok("Loaded key from", keyFile);
 	}
-
-	var privateKey = fs.readFileSync(keyFile).toString();
-	grunt.log.ok("Loaded key from", keyFile);
 
 	grunt.verbose.writeln("Will deploy to " + deploymentInfo.username + "@" + deploymentInfo.host + deploymentInfo.path);
 
