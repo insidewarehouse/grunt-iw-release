@@ -1,6 +1,6 @@
 {
   "name": "grunt-iw-release",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "InsideWarehouse release/deploy flow",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -25,7 +25,7 @@
     "shelljs": "^0.3.0"
   },
   "peerDependencies": {
-    "grunt-bump": "0.0.15",
+    "grunt-bump": "0.0.16",
     "grunt-checkbranch": "^0.3.1",
     "grunt-checkpending": "^0.1.2",
     "grunt-ssh": "^0.12.0"
