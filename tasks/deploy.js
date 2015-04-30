@@ -1,6 +1,7 @@
 module.exports = function (grunt) {
 
-	grunt.loadNpmTasks("grunt-ssh");
+	var loadTasks = require('../lib/loadTasks');
+	loadTasks(grunt, "grunt-ssh");
 
 	var fs = require("fs"),
 		path = require("path"),

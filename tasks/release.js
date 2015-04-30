@@ -1,8 +1,9 @@
 module.exports = function (grunt) {
 
-	grunt.loadNpmTasks("grunt-bump");
-	grunt.loadNpmTasks("grunt-checkbranch");
-	grunt.loadNpmTasks("grunt-checkpending");
+	var loadTasks = require('../lib/loadTasks');
+	loadTasks(grunt, "grunt-bump");
+	loadTasks(grunt, "grunt-checkbranch");
+	loadTasks(grunt, "grunt-checkpending");
 
 	var shell = require("shelljs");
 
