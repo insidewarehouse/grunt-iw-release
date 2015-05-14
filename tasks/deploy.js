@@ -99,6 +99,9 @@ module.exports = function (grunt) {
 		if (!!grunt.config("sshexec.restart")) {
 			grunt.task.run("sshexec:restart");
 		}
+		if (grunt.task.exists("post-deploy")) {
+			grunt.task.run("post-deploy");
+		}
 
 	});
 
