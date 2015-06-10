@@ -22,7 +22,7 @@ module.exports = function (grunt) {
 
 	var topLevelPath = toplevelOutput.output.trim();
 	if (!grunt.file.isPathCwd(topLevelPath)) {
-		var pkgName = grunt.config.get("pkg.name");
+		var pkgName = grunt.config.get("pkg.name").replace(/\@\w+\//, '');
 		bumpOptions.commitMessage = "[" + pkgName + "] v%VERSION%";
 		bumpOptions.tagName = pkgName + "-v%VERSION%";
 		bumpOptions.tagMessage = "Build tag: " + pkgName + "-v%VERSION%";

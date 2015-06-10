@@ -28,7 +28,7 @@ module.exports = function (grunt) {
 	sftpConfig.options.username = deploymentInfo.username;
 	sftpConfig.options.privateKey = privateKey;
 
-	var bundleFileTemplate = "build/<%= pkg.name %>-v<%= pkg.version %>.tgz";
+	var bundleFileTemplate = "build/<%= pkg.name.replace(/\\@\\w+\\//, '') %>-v<%= pkg.version %>.tgz";
 	sftpConfig.release = {
 		src: [ bundleFileTemplate ],
 		options: {
@@ -46,23 +46,23 @@ module.exports = function (grunt) {
 	sshexecConfig.options.privateKey = privateKey;
 
 	sshexecConfig.checkupload = {
-		command: "cd <%= pkg.deployment.path %>/releases/; [ ! -f <%= pkg.name %>-v<%= pkg.version %>.tgz ];"
+		command: "cd <%= pkg.deployment.path %>/releases/; [ ! -f <%= pkg.name.replace(/\\@\\w+\\//, '') %>-v<%= pkg.version %>.tgz ];"
 	};
 	sshexecConfig.extract = {
-		command: "cd <%= pkg.deployment.path %>/releases/; tar xvzf <%= pkg.name %>-v<%= pkg.version %>.tgz >/dev/null"
+		command: "cd <%= pkg.deployment.path %>/releases/; tar xvzf <%= pkg.name.replace(/\\@\\w+\\//, '') %>-v<%= pkg.version %>.tgz >/dev/null"
 	};
 	sshexecConfig.symlink = {
-		command: "ln -sfn <%= pkg.deployment.path %>/releases/<%= pkg.name %>-v<%= pkg.version %> <%= pkg.deployment.path %>/apps/<%= pkg.name %>"
+		command: "ln -sfn <%= pkg.deployment.path %>/releases/<%= pkg.name.replace(/\\@\\w+\\//, '') %>-v<%= pkg.version %> <%= pkg.deployment.path %>/apps/<%= pkg.name.replace(/\\@\\w+\\//, '') %>"
 	};
 	if (!!grunt.config.get("pkg.scripts.start")) {
 		sshexecConfig.restart = {
-			command: "cd <%= pkg.deployment.path %>/apps/<%= pkg.name %>/; npm restart"
+			command: "cd <%= pkg.deployment.path %>/apps/<%= pkg.name.replace(/\\@\\w+\\//, '') %>/; npm restart"
 		};
 	}
 	if (!!fs.existsSync("restart.sh")) {
 		// @todo: check if restart.sh is inside the bundle, not just the root... but let's assume the consumer of this knows what they're doing :)
 		sshexecConfig.restart = {
-			command: "cd <%= pkg.deployment.path %>/apps/<%= pkg.name %>/; bash ./restart.sh"
+			command: "cd <%= pkg.deployment.path %>/apps/<%= pkg.name.replace(/\\@\\w+\\//, '') %>/; bash ./restart.sh"
 		};
 	}
 	grunt.config.set("sshexec", sshexecConfig);
