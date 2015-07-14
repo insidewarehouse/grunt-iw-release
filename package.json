@@ -29,6 +29,10 @@
     "shelljs": "0.5.x"
   },
   "devDependencies": {
-    "grunt-release": "0.12.x"
+    "grunt-release": "0.13.x"
+  },
+  "engines": {
+    "node": "0.12.x",
+    "iojs": "*"
   }
 }
