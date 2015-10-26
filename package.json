@@ -32,7 +32,7 @@
     "grunt-release": "0.13.x"
   },
   "engines": {
-    "node": "0.12.x",
+    "node": "0.12.x || 4.x",
     "iojs": "*"
   }
 }
