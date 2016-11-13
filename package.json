@@ -21,18 +21,17 @@
   },
   "homepage": "https://github.com/insidewarehouse/grunt-iw-release",
   "dependencies": {
-    "grunt": "0.4.x",
-    "grunt-bump": "0.6.x",
+    "@insidewarehouse/grunt-ssh": "0.12.x",
+    "grunt": "1.x",
+    "grunt-bump": "0.8.x",
     "grunt-checkbranch": "1.x",
     "grunt-checkpending": "1.x",
-    "grunt-ssh": "0.12.x",
-    "shelljs": "0.5.x"
+    "shelljs": "0.7.x"
   },
   "devDependencies": {
-    "grunt-release": "0.13.x"
+    "grunt-release": "0.14.x"
   },
   "engines": {
-    "node": "0.12.x || 4.x",
-    "iojs": "*"
+    "node": "4.x"
   }
 }
