@@ -1,7 +1,7 @@
 module.exports = function (grunt) {
 
 	var loadTasks = require('../lib/loadTasks');
-	loadTasks(grunt, "grunt-ssh");
+	loadTasks(grunt, "@insidewarehouse/grunt-ssh");
 
 	var fs = require("fs"),
 		path = require("path"),
@@ -81,7 +81,7 @@ module.exports = function (grunt) {
 			grunt.fail.fatal("Failed to detect the commit of tag '" + checkTag + "'");
 		}
 
-		var headCommit = headOutput.output.trim(), tagCommit = tagOutput.output.trim();
+		var headCommit = headOutput.stdout.trim(), tagCommit = tagOutput.stdout.trim();
 		if (headCommit !== tagCommit) {
 			grunt.fail.fatal("Expected to be on commit '" + tagCommit + "' for tag '" + checkTag + "', but HEAD is at '" + headCommit + "'")
 		}

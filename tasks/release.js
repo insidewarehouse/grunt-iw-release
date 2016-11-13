@@ -20,7 +20,7 @@ module.exports = function (grunt) {
 		grunt.fail.fatal("Failed to detect top level git folder");
 	}
 
-	var topLevelPath = toplevelOutput.output.trim();
+	var topLevelPath = toplevelOutput.stdout.trim();
 	if (!grunt.file.isPathCwd(topLevelPath)) {
 		var pkgName = grunt.config.get("pkg.name").replace(/\@\w+\//, '');
 		bumpOptions.commitMessage = "[" + pkgName + "] v%VERSION%";
