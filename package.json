@@ -1,6 +1,6 @@
 {
   "name": "grunt-iw-release",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "InsideWarehouse release/deploy flow",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
