@@ -56,7 +56,7 @@ module.exports = function (grunt) {
 	};
 	if (!!grunt.config.get("pkg.scripts.start")) {
 		sshexecConfig.restart = {
-			command: "cd <%= pkg.deployment.path %>/apps/<%= pkg.name.replace(/\\@\\w+\\//, '') %>/; npm restart"
+			command: "cd <%= pkg.deployment.path %>/apps/<%= pkg.name.replace(/\\@\\w+\\//, '') %>/; bash --login -c 'npm restart'"
 		};
 	}
 	if (!!fs.existsSync("restart.sh")) {
