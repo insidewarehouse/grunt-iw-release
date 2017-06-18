@@ -27,6 +27,7 @@ module.exports = function (grunt) {
 	sftpConfig.options.host = deploymentInfo.host;
 	sftpConfig.options.username = deploymentInfo.username;
 	sftpConfig.options.privateKey = privateKey;
+	sftpConfig.options.passphrase = deploymentInfo.passphrase;
 
 	var bundleFileTemplate = "build/<%= pkg.name.replace(/\\@\\w+\\//, '') %>-v<%= pkg.version %>.tgz";
 	sftpConfig.release = {
